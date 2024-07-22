@@ -16,38 +16,41 @@ document.addEventListener('DOMContentLoaded', function() {
         "multimedia/imagenes/13.jpeg",
     ];
 
-    let currentIndex = 0;
+    const imagesPerPage = 12; // Número de imágenes por página
+    let currentPage = 0;
 
-    // Cargar imágenes en el carrusel
-    images.forEach(src => {
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = 'Descripción de la imagen';
-        carousel.appendChild(img);
-    });
-
-    function showImage(index) {
-        const totalImages = images.length;
-        if (index < 0) {
-            currentIndex = totalImages - 1;
-        } else if (index >= totalImages) {
-            currentIndex = 0;
-        } else {
-            currentIndex = index;
+    function updateCarousel() {
+        carousel.innerHTML = '';
+        const start = currentPage * imagesPerPage;
+        const end = Math.min(start + imagesPerPage, images.length);
+        for (let i = start; i < end; i++) {
+            const img = document.createElement('img');
+            img.src = images[i];
+            img.alt = 'Descripción de la imagen';
+            carousel.appendChild(img);
         }
-        const offset = -currentIndex * 100;
-        carousel.style.transform = `translateX(${offset}%)`;
     }
 
-    // Controladores de botones
+    function showPage(page) {
+        const totalPages = Math.ceil(images.length / imagesPerPage);
+        if (page < 0) {
+            currentPage = totalPages - 1;
+        } else if (page >= totalPages) {
+            currentPage = 0;
+        } else {
+            currentPage = page;
+        }
+        updateCarousel();
+    }
+
     document.querySelector('.carousel-button.next').addEventListener('click', () => {
-        showImage(currentIndex + 1);
+        showPage(currentPage + 1);
     });
 
     document.querySelector('.carousel-button.prev').addEventListener('click', () => {
-        showImage(currentIndex - 1);
+        showPage(currentPage - 1);
     });
 
-    // Mostrar la primera imagen al cargar
-    showImage(currentIndex);
+    // Inicializar el carrusel mostrando la primera página
+    updateCarousel();
 });
