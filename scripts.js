@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const gallery = document.getElementById('gallery');
     const images = [
-        'multimedia/1.jpeg',
-        'ruta-de-tu-imagen2.jpg',
+        "multimedia/imagenes/1.jpeg",
+        'C:\Users\mirta\Documents\GitHub\denise\multimedia\imagenes\1.jpeg',
         'ruta-de-tu-imagen3.jpg',
         'ruta-de-tu-imagen4.jpg',
         'ruta-de-tu-imagen5.jpg',
