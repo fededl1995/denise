@@ -20,30 +20,23 @@ body {
     font-weight: bold;
 }
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 15px;
-    padding: 30px;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.gallery.loaded {
-    opacity: 1;
-}
-
-.gallery img {
-    width: 100%;
-    height: auto;
+.carousel-container {
+    position: relative;
+    max-width: 80%;
+    margin: 30px auto;
+    overflow: hidden;
     border-radius: 10px;
-    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.gallery img:hover {
-    transform: scale(1.05) rotate(2deg);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    filter: brightness(1.2);
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+    min-width: 100%;
+    height: auto;
 }
 
 .footer {

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const gallery = document.getElementById('gallery');
+    const carousel = document.getElementById('carousel');
     const images = [
         "multimedia/imagenes/1.jpeg",
         "multimedia/imagenes/2.jpeg",
@@ -16,18 +16,20 @@ document.addEventListener('DOMContentLoaded', function() {
         "multimedia/imagenes/13.jpeg",
     ];
 
-    let loadedImages = 0;
-
     images.forEach(src => {
         const img = document.createElement('img');
         img.src = src;
         img.alt = 'Descripción de la imagen';
-        img.onload = () => {
-            loadedImages++;
-            if (loadedImages === images.length) {
-                gallery.classList.add('loaded');
-            }
-        };
-        gallery.appendChild(img);
+        carousel.appendChild(img);
     });
+
+    let currentIndex = 0;
+
+    function showNextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        const offset = -currentIndex * 100;
+        carousel.style.transform = `translateX(${offset}%)`;
+    }
+
+    setInterval(showNextImage, 3000); // Cambia la imagen cada 3 segundos
 });
