@@ -1,5 +1,10 @@
+
 document.addEventListener('DOMContentLoaded', function() {
-    const carousel = document.getElementById('carousel');
+    const carousel = document.querySelector('#carousel');
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const nextButton = document.querySelector('.carousel-button.next');
+
+    let currentIndex = 0;
     const images = [
         "multimedia/imagenes/1.jpeg",
         "multimedia/imagenes/2.jpeg",
@@ -16,21 +21,32 @@ document.addEventListener('DOMContentLoaded', function() {
         "multimedia/imagenes/13.jpeg",
     ];
 
-    // Añadir imágenes al carrusel
-    images.forEach(src => {
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = 'Descripción de la imagen';
-        carousel.appendChild(img);
-    });
+    function updateCarousel() {
+        // Ajusta el desplazamiento del carrusel en función del índice actual
+        const offset = -currentIndex * 100;
+        carousel.style.transform = `translateX(${offset}%)`;
+    }
 
-    const scrollAmount = 200; // Ajusta según el tamaño de las imágenes
+    function showNextImage() {
+        // Avanza al siguiente índice de la imagen
+        currentIndex = (currentIndex + 1) % images.length;
+        updateCarousel();
+    }
 
-    document.querySelector('.carousel-button.next').addEventListener('click', () => {
-        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    });
+    function showPrevImage() {
+        // Retrocede al índice anterior de la imagen
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateCarousel();
+    }
 
-    document.querySelector('.carousel-button.prev').addEventListener('click', () => {
-        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    });
+    function initCarousel() {
+        // Rellena el carrusel con las imágenes
+        carousel.innerHTML = images.map(src => `<img src="${src}" alt="Image">`).join('');
+        updateCarousel();
+    }
+
+    prevButton.addEventListener('click', showPrevImage);
+    nextButton.addEventListener('click', showNextImage);
+
+    initCarousel();
 });
