@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const gallery = document.getElementById('gallery');
     const images = [
-        'multimedia/imagenes/1.jpeg',
+        'multimedia/1.jpeg',
         'ruta-de-tu-imagen2.jpg',
         'ruta-de-tu-imagen3.jpg',
         'ruta-de-tu-imagen4.jpg',
