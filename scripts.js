@@ -2,20 +2,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const gallery = document.getElementById('gallery');
     const images = [
         "multimedia/imagenes/1.jpeg",
-        'C:\Users\mirta\Documents\GitHub\denise\multimedia\imagenes\1.jpeg',
-        'ruta-de-tu-imagen3.jpg',
-        'ruta-de-tu-imagen4.jpg',
-        'ruta-de-tu-imagen5.jpg',
-        'ruta-de-tu-imagen6.jpg',
-        'ruta-de-tu-imagen7.jpg',
-        'ruta-de-tu-imagen8.jpg',
-        'ruta-de-tu-imagen9.jpg',
-        'ruta-de-tu-imagen10.jpg',
-        'ruta-de-tu-imagen11.jpg',
-        'ruta-de-tu-imagen12.jpg',
-        'ruta-de-tu-imagen13.jpg',
-        'ruta-de-tu-imagen14.jpg',
-        'ruta-de-tu-imagen15.jpg'
+        "multimedia/imagenes/2.jpeg",
+        "multimedia/imagenes/3.jpeg",
+        "multimedia/imagenes/4.jpeg", 
+        "multimedia/imagenes/5.jpeg", 
+        "multimedia/imagenes/6.jpeg", 
+        "multimedia/imagenes/7.jpeg", 
+        "multimedia/imagenes/8.jpeg", 
+        "multimedia/imagenes/9.jpeg", 
+        "multimedia/imagenes/10.jpeg", 
+        "multimedia/imagenes/11.jpeg", 
+        "multimedia/imagenes/12.jpeg",
+        "multimedia/imagenes/13.jpeg",
     ];
 
     images.forEach(src => {
