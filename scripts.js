@@ -16,41 +16,21 @@ document.addEventListener('DOMContentLoaded', function() {
         "multimedia/imagenes/13.jpeg",
     ];
 
-    const imagesPerPage = 12; // Número de imágenes por página
-    let currentPage = 0;
+    // Añadir imágenes al carrusel
+    images.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = 'Descripción de la imagen';
+        carousel.appendChild(img);
+    });
 
-    function updateCarousel() {
-        carousel.innerHTML = '';
-        const start = currentPage * imagesPerPage;
-        const end = Math.min(start + imagesPerPage, images.length);
-        for (let i = start; i < end; i++) {
-            const img = document.createElement('img');
-            img.src = images[i];
-            img.alt = 'Descripción de la imagen';
-            carousel.appendChild(img);
-        }
-    }
-
-    function showPage(page) {
-        const totalPages = Math.ceil(images.length / imagesPerPage);
-        if (page < 0) {
-            currentPage = totalPages - 1;
-        } else if (page >= totalPages) {
-            currentPage = 0;
-        } else {
-            currentPage = page;
-        }
-        updateCarousel();
-    }
+    const scrollAmount = 200; // Ajusta según el tamaño de las imágenes
 
     document.querySelector('.carousel-button.next').addEventListener('click', () => {
-        showPage(currentPage + 1);
+        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     });
 
     document.querySelector('.carousel-button.prev').addEventListener('click', () => {
-        showPage(currentPage - 1);
+        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
     });
-
-    // Inicializar el carrusel mostrando la primera página
-    updateCarousel();
 });

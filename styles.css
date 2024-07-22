@@ -30,16 +30,16 @@ body {
 }
 
 .carousel {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 200px; /* Ajusta la altura según el contenido */
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
     gap: 10px;
-    transition: transform 0.5s ease-in-out;
 }
 
 .carousel img {
-    width: 100%;
-    height: 100%;
+    width: 200px; /* Ajusta el tamaño de las imágenes aquí */
+    height: auto;
     object-fit: cover;
     border-radius: 10px;
 }
