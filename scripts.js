@@ -16,10 +16,18 @@ document.addEventListener('DOMContentLoaded', function() {
         "multimedia/imagenes/13.jpeg",
     ];
 
+    let loadedImages = 0;
+
     images.forEach(src => {
         const img = document.createElement('img');
         img.src = src;
         img.alt = 'Descripción de la imagen';
+        img.onload = () => {
+            loadedImages++;
+            if (loadedImages === images.length) {
+                gallery.classList.add('loaded');
+            }
+        };
         gallery.appendChild(img);
     });
 });

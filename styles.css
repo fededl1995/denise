@@ -25,6 +25,12 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 15px;
     padding: 30px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.gallery.loaded {
+    opacity: 1;
 }
 
 .gallery img {
