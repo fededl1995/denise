@@ -2,6 +2,15 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    background: url('https://st.depositphotos.com/2306293/3167/i/450/depositphotos_31670287-stock-photo-christmas-glitter-texture.jpg') no-repeat center center fixed;
+    background-size: cover; /* Asegura que la imagen cubra toda la página */
+    color: #333;
+}
+{
+
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
     background-color: #f4f4f4;
     color: #333;
 }
