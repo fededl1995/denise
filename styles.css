@@ -1,17 +1,29 @@
-bodybody {
-    font-family: 'Arial', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Playwrite+BE+VLG:wght@100..400&display=swap');
+
+/* Resto del código CSS */
+
+
+body {
+    font-family: "Playwrite BE VLG", cursive;
     margin: 0;
     padding: 0;
-    background: url('images/background.jpg') no-repeat center center fixed;
-    background-size: cover; /* Asegura que la imagen cubra toda la página */
-    color: #333;
+    background: url('https://e1.pxfuel.com/desktop-wallpaper/600/132/desktop-wallpaper-neon-pink-glitter-background-pink-glitter.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #f7f6f6;
 }
 
 .header {
-    background-color: #ff80ab;
-    padding: 30px 0;
+    background-color: rgba(255, 128, 171, 0.4); /* Fondo semitransparente */
+    padding: 10px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgb(255, 255, 255);
+    position: relative;
+}
+
+.logo img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 10px;
 }
 
 .header h1 {
@@ -19,6 +31,31 @@ bodybody {
     color: #fff;
     font-size: 2.5em;
     font-weight: bold;
+    font-family: "Playwrite BE VLG", cursive;
+}
+
+.description {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.description h2 {
+    font-size: 1.5em;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.description ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.description li {
+    margin: 5px 0;
 }
 
 .carousel-container {
@@ -31,25 +68,28 @@ bodybody {
 }
 
 .carousel {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-auto-flow: column;
-    gap: 10px;
+    display: flex;
     transition: transform 0.5s ease-in-out;
     white-space: nowrap;
 }
 
 .carousel img {
-    width: 100%;
-    height: auto;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
     border-radius: 10px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.carousel img:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
 }
 
 .carousel-button {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-100%);
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     border: none;
@@ -58,6 +98,11 @@ bodybody {
     z-index: 10;
     font-size: 1.5em;
     border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .carousel-button.prev {
@@ -72,7 +117,7 @@ bodybody {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 20px 0;
+    padding: 20px;
     margin-top: 20px;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
     font-size: 1em;
@@ -85,4 +130,10 @@ bodybody {
 
 .footer a:hover {
     text-decoration: underline;
+}
+
+.logo img {
+    max-width: 200px; /* Ajusta según el tamaño de tu logo */
+    height: auto;
+    margin-bottom: 10px;
 }
